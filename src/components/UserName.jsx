@@ -1,8 +1,8 @@
 import React from 'react'
 
-const UserName = ({userName}) => {
+const UserName = ({userName, className}) => {
   return (
-    <p>{userName}</p>
+    <p className={className}>{userName}</p>
   )
 }
 

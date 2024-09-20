@@ -5,18 +5,24 @@ import UserName from '../components/UserName'
 import Text from '../components/Text'
 import ItemButtons from './ItemButtons'
 
-const Item = ({userName}) => {
+const Item = ({userName, text, userProfileImage, likeCount}) => {
   return (
     <div>
     <Line/>
-    <UserImage/>
-    <div>
+    <div className='userImage-ItemButtons-text'>
+    <div className='UserImage userItem-image'>
+    <UserImage userProfileImage={userProfileImage}/>
+    </div>
+    <div className='UserName-Text-ItemButtons'>
+    <div className='userName-Text'>
     <UserName userName={userName}/>
-    <Text/>
+    <Text text={text}/>
     </div>
     <ItemButtons/>
     </div>
+    </div>
+    <img src="/images/heart.svg" alt='하트'/>{likeCount}
+    </div>
   )
 }
-
 export default Item

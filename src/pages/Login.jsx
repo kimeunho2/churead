@@ -11,17 +11,32 @@ import Button from '../components/Button'
 
 
 
-
   const Login = () => {
     // const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    const handleInputChange = (data, placeholder) => {
   
-    const handleClick = (text) => {
+      if (placeholder === "Email") {
+        setEmail(data)
+      } else {
+        setPassword(data)
+      };
+
+
       
-      console.log(text)
+
+    }
+  
+    const handleClick = () => {
+  
    
-  
       
+      console.log("email", email);
+      console.log("password", password);
+      
+    
       // navigate('/');
     };
   
@@ -30,8 +45,8 @@ import Button from '../components/Button'
     <img src="/images/logo 1.svg" alt="Logo" className='logo' />
     <p className='login-main-text'>Churead에서 소통해보세요</p>
     <form className='form'>
-    <InputField type="email" placeholder="Email"/>
-    <InputField type="Password" placeholder="Password"/>
+    <InputField type="email" placeholder="Email" onChange={handleInputChange}/>
+    <InputField type="Password" placeholder="Password" onChange={handleInputChange}/>
     <Button type={"submit"} text="Login" onClick={handleClick} className="loginButton"/>
     </form>
     <p className='Account-Text'>계정이 없으신가요?<Link to="/Signin" className='Account-Link'> 가입하기</Link></p>

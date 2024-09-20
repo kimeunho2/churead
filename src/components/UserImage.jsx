@@ -1,8 +1,8 @@
 import React from 'react'
 
-const UserImage = () => {
+const UserImage = ({userProfileImage}) => {
   return (
-    <img src="/images/123.svg" alt="Logo" className='user-iamage' />
+    <img src={userProfileImage} alt="Logo" className='user-iamage' />
   )
 }
 
