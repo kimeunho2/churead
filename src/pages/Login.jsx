@@ -49,7 +49,7 @@ import Button from '../components/Button'
     <InputField type="Password" placeholder="Password" onChange={handleInputChange}/>
     <Button type={"submit"} text="Login" onClick={handleClick} className="loginButton"/>
     </form>
-    <p className='Account-Text'>계정이 없으신가요?<Link to="/Signin" className='Account-Link'> 가입하기</Link></p>
+    <p className='Account-Text'>계정이 없으신가요?<Link to="/Sign-up" className='Account-Link'> 가입하기</Link></p>
     <p className='or'>or</p>
     <Button type={"button"} src="/images/google.svg" text="Continue with google >" onClick={handleClick} className="GoogleLogin"/>
     

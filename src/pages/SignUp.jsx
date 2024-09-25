@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import InputField from '../components/InputField'
 import Button from '../components/Button'
 
-const Signin = () => {
+const SignUp = () => {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -51,4 +51,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default SignUp

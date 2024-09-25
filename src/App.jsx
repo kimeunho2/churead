@@ -1,9 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
-import Signin from "./pages/Signin"
+import SignUp from "./pages/SignUp"
 import HomeLogin from './pages/HomeLogin'
 import Post from './pages/Post'
+import { useState } from "react"
+import Edit from "./pages/Edit"
 
 
 
@@ -11,9 +13,23 @@ import Post from './pages/Post'
 
 function App() {
  
-const handlePost = (value) => {
-  console.log("123",value);
+const [PostValue, setPostValue] = useState("");
+const [editText, seteditText] = useState("");
+const [correctionValue, setCorrection] = useState("");
+const [id, setId] = useState("");
+
+const handlePost = (value, id) => {
+  console.log(value);
+  setPostValue(value);
+  setCorrection(value);
 }
+
+const handleEdit = (text, id) => {
+  console.log(text);
+  seteditText(text);
+  setId(id);
+}
+ 
 
 
   return (
@@ -22,9 +38,10 @@ const handlePost = (value) => {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/Signin" element={<Signin/>}/>
-        <Route path="/Homelogin" element={<HomeLogin/>}/>
+        <Route path="/Sign-up" element={<SignUp/>}/>
+        <Route path="/Homelogin" element={<HomeLogin PostValue={PostValue} onEdit={handleEdit} correctionValue={correctionValue} id={id}/>}/>
         <Route path="/Post" element={<Post onPost={handlePost}/>}/>
+        <Route path="/Edit" element={<Edit onPost={handlePost} editText={editText} id={id}/>}/>
       </Routes>
     </BrowserRouter>
 

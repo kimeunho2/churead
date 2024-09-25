@@ -1,16 +1,17 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Line from '../components/Line'
 import UserImage from '../components/UserImage'
 import UserName from '../components/UserName'
 import Button from '../components/Button'
 import Nav from '../components/Nav'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Post = ({onPost}) => {
+const Edit = ({onPost, editText, id}) => {
   
   
-  const textareaRef = useRef(null)
 
+
+  const history = useNavigate(); 
 
   const [value, setValue] = useState('');
 
@@ -20,7 +21,7 @@ const Post = ({onPost}) => {
       const {value} = event.target;
 
       setValue(value)
-      console.log(value);
+      // console.log(value);
 
 
       
@@ -28,13 +29,13 @@ const Post = ({onPost}) => {
 
 
   const handleClick = () => {
-    onPost(value)
-  
+    console.log(id);
+    onPost(value, id)
+
+    history("/Homelogin");
   }
 
-  useEffect(() => {
-    console.log("123",textareaRef);
-  }, {})
+ 
 
 
   return (
@@ -49,10 +50,8 @@ const Post = ({onPost}) => {
         <UserImage/>
         <div className='userName-area'>
         <UserName userName="steamylit" className="post-userName"/>
-        <textarea className='textarea-class' placeholder="텍스트를 입력하세요..." onChange={handleChange} ref={textareaRef
-
-          
-        }> </textarea>
+        <textarea className='textarea-class' placeholder="텍스트를 입력하세요..." onChange={handleChange}>
+        {editText}</textarea>
         </div>
         </div>
         <div className='Reply-Post'>
@@ -65,4 +64,4 @@ const Post = ({onPost}) => {
 )
 }
 
-export default Post
+export default Edit

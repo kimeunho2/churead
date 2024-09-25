@@ -5,7 +5,25 @@ import UserName from '../components/UserName'
 import Text from '../components/Text'
 import ItemButtons from './ItemButtons'
 
-const Item = ({userName, text, userProfileImage, likeCount}) => {
+const Item = ({userName, text, userProfileImage, likeCount, onDelete, id, edit }) => {
+  
+
+  
+
+
+  const handleDelete = () => {
+    const isConfirmed = window.confirm("정말 삭제하시겠습니까?");
+
+    if (isConfirmed) {
+      onDelete(id);
+    } else {
+      console.log("삭제가 취소되었습니다.");
+    }
+
+  };  
+  
+  
+  
   return (
     <div>
     <Line/>
@@ -18,7 +36,7 @@ const Item = ({userName, text, userProfileImage, likeCount}) => {
     <UserName userName={userName}/>
     <Text text={text}/>
     </div>
-    <ItemButtons/>
+    <ItemButtons onDelete={handleDelete} edit={edit} text={text} id={id} />
     </div>
     </div>
     <img src="/images/heart.svg" alt='하트'/>{likeCount}
